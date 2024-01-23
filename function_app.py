@@ -6,7 +6,7 @@ import requests
 app = func.FunctionApp()
 
 @app.schedule(schedule="0 0 * * *", arg_name="myTimer", run_on_startup=True,
-              use_monitor=False) 
+              use_monitor=False, ) 
 def playcount_trigger(myTimer: func.TimerRequest) -> None:
 
     response = requests.get('https://spotify-playcount.livelyocean-7de1f403.canadacentral.azurecontainerapps.io/album_queue/populate')
